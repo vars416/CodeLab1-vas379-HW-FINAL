@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class raycasting : MonoBehaviour
 {
     private Inventory inventory;
+    public GameObject hand;
 
     public Camera mycam;
     Ray myRay = new Ray();
@@ -29,30 +31,33 @@ public class raycasting : MonoBehaviour
     void PointAtStar()
     {
         RaycastHit myRayHitInfo = new RaycastHit();
-        
+        Debug.DrawLine(gameObject.transform.position, myRayHitInfo.point, Color.red);
 
         if (Physics.Raycast(myRay , out myRayHitInfo, 100f))
         {
             Debug.Log(myRayHitInfo.transform.name);
-            Debug.DrawLine(gameObject.transform.position, myRayHitInfo.point, Color.red);
 
-            for (int i = 0; i < inventory.obj.Length; i++)
+
+            /*for (int i = 0; i < inventory.obj.Length; i++)
             {
                 if (myRayHitInfo.collider.tag == "star")
                 {
-                    inventory.obj[i].GetComponent<Light>().enabled = false;
+                    //inventory.obj[i].GetComponent<Light>().enabled = false;
+                    //Debug.Log(GameManager.instance.score);
+                    //GameManager.instance.Counter++;
                 }
-                else if (myRayHitInfo.collider.tag == "star2")
+                if (myRayHitInfo.collider.tag == "star2")
                 {
                     inventory.obj[i].GetComponent<MeshRenderer>().enabled = false;
                 }
-            }
+            }*/
 
             /*for (int i = 0; i < inventory.obj.Length; i++)
             {
                 
             }*/
-            /*if (myRayHitInfo.collider.tag == "star")
+
+            if (myRayHitInfo.collider.tag == "star")
             {
                 for (int i = 0; i < inventory.obj.Length; i++)
                 {
@@ -60,7 +65,7 @@ public class raycasting : MonoBehaviour
                 }
             }
 
-            if (myRayHitInfo.collider.tag == "star2")
+            /*if (myRayHitInfo.collider.tag == "star2")
             {
                 for (int i = 0; i < inventory.obj.Length; i++)
                 {
