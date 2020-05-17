@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = ("Score: " + GameManager.instance.counter + "/5");
+        score.text = ("Score: " + GameManager.instance.counter/2 + "/5");
         if (GameManager.instance.counter == 20)
         {
             Invoke("ChangeScene", 10f);

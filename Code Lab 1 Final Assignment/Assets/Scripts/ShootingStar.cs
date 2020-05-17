@@ -21,6 +21,7 @@ public class ShootingStar : MonoBehaviour
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         em.enabled = false;
         rb = GetComponent<Rigidbody>();
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class ShootingStar : MonoBehaviour
 
     void MovingStar()
     {
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
         GetComponent<ParticleSystem>().Play();
         ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
         em.enabled = true; 
