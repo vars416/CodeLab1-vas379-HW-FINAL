@@ -64,7 +64,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 647b0cf62bc527544b00442d63809ea2, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -224,7 +224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 7951156280216649301}
   KissText: {fileID: 7951156281698540408}
-  Kiss: {fileID: 0}
 --- !u!82 &7951156280672390019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -385,7 +384,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 33996b9337a1a2147bf7208ad3bed8c5, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0

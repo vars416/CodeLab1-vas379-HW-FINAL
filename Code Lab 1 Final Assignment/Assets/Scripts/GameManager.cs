@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         currentscene = SceneManager.GetActiveScene(); //get currentscene
         score = GetComponentInChildren<Text>(); //get text which is child of gamemanager
         KissText.GetComponent<Text>(); //get text from kisstext
-
     }
 
     // Update is called once per frame
@@ -52,6 +51,10 @@ public class GameManager : MonoBehaviour
     {
         score.text = ("Stars: " + GameManager.instance.counter/2); //display score after dividing it by 2
         
+        if (Input.GetKeyDown(KeyCode.Escape)) //if 'Esc' is pressed then
+        {
+            Application.Quit(); //quit game
+        }
     }
 
     private void FixedUpdate() //using fixed update so the function below happens only once
