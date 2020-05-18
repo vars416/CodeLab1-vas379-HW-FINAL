@@ -1123,9 +1123,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game made by Varun Saxena\n\nSong- \nWith You/For You by Prateek Kuhad\n\n\nCampfire
-    Sound by Alexander (Orange free sounds)\nCampfire Pack by Dreamdev Studios\nStellar
-    Sky by Satsuru"
+  m_Text: "Game made by Varun Saxena\n\nSong- \nWith You/For You by Prateek Kuhad\n\nCharacter
+    Models by Christine Fouron\nCampfire Sound by Alexander (Orange free sounds)\nCampfire
+    Pack by Dreamdev Studios\nStellar Sky by Satsuru"
 --- !u!222 &1431910114
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -51,13 +51,15 @@ public class UIManager : MonoBehaviour
 
     public void ShowCredits()
     {
-        Credits.GetComponent<Text>().enabled = true; //show credits
+        if (Credits.GetComponent<Text>().enabled == false) //if credits text is hidden
+        {
+            Credits.GetComponent<Text>().enabled = true; //show credits
+        }
+        else
+        {
+            Credits.GetComponent<Text>().enabled = false; //else hide it again on clicking
+        }
     }
-
-    public void HideCredits()
-    {
-        Credits.GetComponent<Text>().enabled = false; //hide credits
-    } 
 
     public void GoToMainMenu()
     {
