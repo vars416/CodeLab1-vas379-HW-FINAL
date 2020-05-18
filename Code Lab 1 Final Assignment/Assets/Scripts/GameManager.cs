@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Text score;
+    public Text KissText;
+    public Image Kiss;
     private int counter = 0;
 
     public int Counter
@@ -40,15 +42,24 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = GetComponentInChildren<Text>();
+        KissText = GetComponentInChildren<Text>();
+        //KissText.GetComponentInChildren<Text>().enabled = false;
+        Kiss = GetComponentInChildren<Image>();
+        //Kiss.gameObject.GetComponent<Image>().enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         score.text = ("Score: " + GameManager.instance.counter/2 + "/5");
-        if (GameManager.instance.counter == 20)
+        if (GameManager.instance.counter == 2)
         {
-            Invoke("ChangeScene", 10f);
+            KissText.GetComponentInChildren<Text>().enabled = true;
+            //Kiss.gameObject.GetComponent<Image>().enabled = true;
+            //Invoke("ChangeScene", 10f);
+            //Invoke("ShowKissText", 5f);
+
         }
     }
 
@@ -57,5 +68,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    void ShowKissText()
+    {
+        //Kiss.gameObject.GetComponent<Image>().enabled = true;
+        //Kiss.setActive(true);
+        //Kiss.GetComponent<Text>().enabled = true;
+        //Kiss.GetComponentInChildren<Text>().enabled = true;
+        print("working");
+    }
 
 }

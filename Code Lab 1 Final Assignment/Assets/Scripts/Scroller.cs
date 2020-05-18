@@ -29,7 +29,7 @@ public class Scroller : MonoBehaviour
         if (other.gameObject.CompareTag("star"))
         {
             other.gameObject.SetActive(false);
-            print("working");
+            print("star off");
         }
     }
 
