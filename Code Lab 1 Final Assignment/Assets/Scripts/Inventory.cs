@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory me;
-    public GameObject[] obj;
+    public static Inventory me; 
+    public GameObject[] obj; //array of gameobjects called obj
     // Start is called before the first frame update
     private void Awake()
     {
-        me = this;
+        me = this; //make a singleton of this script
     }
 }

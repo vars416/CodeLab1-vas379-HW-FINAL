@@ -5,77 +5,47 @@ using UnityEngine.UI;
 
 public class raycasting : MonoBehaviour
 {
-    private Inventory inventory;
-    public GameObject hand;
+    private Inventory inventory; //access static object- instance
+    public GameObject hand; //get a hand gameobject
 
-    public Camera mycam;
-    Ray myRay = new Ray();
+    public Camera mycam; //get camera in player
+    Ray myRay = new Ray(); //declare a new ray named myRay
+    
     // Start is called before the first frame update
     void Start()
     {
         //obj = GetComponent<Collider>();
-        inventory = gameObject.GetComponent<Inventory>();
-        mycam = GetComponent<Camera>();
+        inventory = gameObject.GetComponent<Inventory>(); //get inventory
+        mycam = GetComponent<Camera>(); //get camera
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //on clicking lmb
         {
-            myRay = Camera.main.ScreenPointToRay(Input.mousePosition); 
-            PointAtStar();
+            myRay = Camera.main.ScreenPointToRay(Input.mousePosition); //hit ray camera to center of viewport
+            PointAtStar(); //call PointAtStar
         }
     }
 
-    void PointAtStar()
+    void PointAtStar() 
     {
-        RaycastHit myRayHitInfo = new RaycastHit();
-        Debug.DrawLine(gameObject.transform.position, myRayHitInfo.point, Color.red);
+        RaycastHit myRayHitInfo = new RaycastHit(); //store info of casted ray
+        Debug.DrawLine(gameObject.transform.position, myRayHitInfo.point, Color.red); //draw line for raycast in editor
 
-        if (Physics.Raycast(myRay , out myRayHitInfo, 1000f))
+        if (Physics.Raycast(myRay , out myRayHitInfo, 1000f)) //define distance for casted ray
         {
-            Debug.Log(myRayHitInfo.transform.name);
+            Debug.Log(myRayHitInfo.transform.name); //write name of hit gameobject in console
 
 
-            for (int i = 0; i < inventory.obj.Length; i++)
+            for (int i = 0; i < inventory.obj.Length; i++) //go through length of obj. This is obsolete since I am no longer using the array
             {
-                //GameManager.instance.Counter++;
-                if (myRayHitInfo.collider.tag == "star")
+                if (myRayHitInfo.collider.tag == "star") //if tag is star
                 {
-                    //inventory.obj[i].GetComponent<Light>().enabled = false;
-                    //Debug.Log(GameManager.instance.score);
-                    GameManager.instance.Counter++;
-                }
-                /*if (myRayHitInfo.collider.tag == "star2")
-                {
-                    inventory.obj[i].GetComponent<MeshRenderer>().enabled = false;
-                }*/
+                    GameManager.instance.Counter++; //increase the score. (For some reason, the score is increasing by two numbers)
+                }              
             }
-
-            /*for (int i = 0; i < inventory.obj.Length; i++)
-            {
-                
-            }*/
-
-            /*if (myRayHitInfo.collider.tag == "star")
-            {
-
-                GameManager.instance.Counter++;
-                for (int i = 0; i < inventory.obj.Length; i++)
-                {
-                    inventory.obj[i].GetComponent<Light>().enabled = false;
-                }
-            }
-
-            if (myRayHitInfo.collider.tag == "star2")
-            {
-                GameManager.instance.Counter++;
-                for (int i = 0; i < inventory.obj.Length; i++)
-                {
-                    inventory.obj[i].GetComponent<MeshRenderer>().enabled = false;
-                }
-            }*/
         }
     }
 }
