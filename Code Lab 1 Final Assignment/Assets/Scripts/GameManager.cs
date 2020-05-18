@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    private Scene currentscene;
     public Text score;
-    public Text KissText;
+    public GameObject KissText;
     public Image Kiss;
     private int counter = 0;
 
@@ -41,8 +42,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentscene = SceneManager.GetActiveScene();
         score = GetComponentInChildren<Text>();
-        KissText = GetComponentInChildren<Text>();
+        KissText.GetComponent<Text>();
         //KissText.GetComponentInChildren<Text>().enabled = false;
         Kiss = GetComponentInChildren<Image>();
         //Kiss.gameObject.GetComponent<Image>().enabled = false;
@@ -53,9 +55,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         score.text = ("Score: " + GameManager.instance.counter/2 + "/5");
-        if (GameManager.instance.counter == 2)
+        if (GameManager.instance.counter >= 3)
         {
-            KissText.GetComponentInChildren<Text>().enabled = true;
+            KissText.GetComponent<Text>().enabled = true;
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                print("scene kya hai");
+                ChangeScene();
+            }
             //Kiss.gameObject.GetComponent<Image>().enabled = true;
             //Invoke("ChangeScene", 10f);
             //Invoke("ShowKissText", 5f);
@@ -65,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     void ShowKissText()
@@ -76,5 +83,4 @@ public class GameManager : MonoBehaviour
         //Kiss.GetComponentInChildren<Text>().enabled = true;
         print("working");
     }
-
 }
